@@ -1,0 +1,64 @@
+:root {
+    --cor-do-fundo: #fff8f2;
+    --texto-destaque: #424141;
+    --cor-do-botao: #0b0705;
+}
+
+@font-face {
+    font-family: 'adamScript';
+    src: url('/fonts/RTL-AdamScript-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    background: var(--cor-do-fundo);
+}
+
+
+.tituloHeader h1{
+    font-family: 'adamScript', cursive;
+    margin: 0;
+}
+
+.navHeader {
+    display: flex;
+    justify-content: space-around;
+}
+
+.navHeader a {
+    display: flex;
+    text-decoration: none;
+    color: black;
+    align-items: center;
+    margin: 10px;
+    transition: 1s ease;
+}
+
+.navHeader a:hover {
+    color: gray;
+    transition: .5s;
+}
+
+.btnHeaderAgen {
+    border-radius: 10px;
+    padding: 5px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.178);
+    border: 1px solid rgb(0, 0, 0);
+    color: white;
+    background: var(--cor-do-botao);
+    transition: .4s;
+}
+
+.btnHeaderAgen:hover {
+    background: #cecece;
+    border: 1px solid #cecece;
+    transition: .4s;
+}
+
+.hg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
