@@ -1,8 +1,12 @@
 :root {
+    /* ------------------------------------------------------ Variaveis */
     --cor-do-fundo: #fff8f2;
     --texto-destaque: #424141;
-    --cor-do-botao: #0b0705;
+    --cor-do-botao: #424141;
+    --sombra: #0000006e;
 }
+
+/* ------------------------------------------------------ Fontes Instaladas */
 
 @font-face {
     font-family: 'adamScript';
@@ -11,17 +15,40 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'cooperbt';
+    src: url('/fonts/cooper-black-bt.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.fonteAdam {
+    /* definindo uma classe especifica para fonte adamScript */
+    font-family: 'adamScript', cursive;
+}
+
+/* ------------------------------------------------------ Home */
+
 body {
     background: var(--cor-do-fundo);
 }
 
+/* ------------------------------------------------------ Header*/
 
-.tituloHeader h1{
+.header {
+    backdrop-filter: blur(5px);
+    background: #fff8f2be;
+    border-bottom: 2px solid var(--cor-do-fundo);
+}
+
+.tituloHeader h1 {
     font-family: 'adamScript', cursive;
     margin: 0;
+    font-size: 30px;
 }
 
 .navHeader {
+    font-size: 15px;
     display: flex;
     justify-content: space-around;
 }
@@ -43,22 +70,218 @@ body {
 .btnHeaderAgen {
     border-radius: 10px;
     padding: 5px;
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.178);
-    border: 1px solid rgb(0, 0, 0);
+    box-shadow: 1px 1px 5px var(--sombra);
+    border: 1px solid var(--cor-do-botao);
     color: white;
     background: var(--cor-do-botao);
     transition: .4s;
 }
 
 .btnHeaderAgen:hover {
-    background: #cecece;
-    border: 1px solid #cecece;
+    transform: scale(0.9);
+    background: none;
+    color: var(--cor-do-botao);
+}
+
+/* ------------------------------------------------------ Titulo Chamativo da Home */
+
+.textoDestaque {
+    /* color: var(--texto-destaque); */
+    margin-top: 150px;
+    font-family: 'cooperbt';
+    background: linear-gradient(270deg, var(--texto-destaque), rgb(94, 94, 94), var(--texto-destaque));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+/* ------------------------------------------------------ Botão Agendar Horário! */
+
+.botaoAgendar {
+    border-radius: 10px;
+    padding: 5px;
+    width: 150px;
+    justify-content: center;
+    display: flex;
+    box-shadow: 1px 1px 5px var(--sombra);
+    border: 1px solid var(--cor-do-botao);
+    color: var(--cor-do-botao);
+    text-decoration: none;
     transition: .4s;
 }
 
-.hg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
+.botaoAgendar:hover {
+    transform: scale(0.96);
+    background: var(--cor-do-botao);
+    color: white;
+}
+
+/* ------------------------------------------------------ Carrossel infinito de imagens */
+
+
+.carrosselImgs {
+    margin-top: 70px;
+    overflow: hidden;
+    display: flex;
+    /* box-shadow: 1px 1px 10px black; */
+    align-items: center;
+    -webkit-mask-image: linear-gradient(to right, transparent 10%, black 15%);
+    mask-image: linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);
+}
+
+
+.carrosselImgs img {
+    width: 130px;
+}
+
+.carrosselImgs div {
+    animation: moverImgs 80s linear infinite;
+}
+
+/* -------------------------------------------------------------- Quem Somos */
+
+.quemSomos {
+    margin-top: 80px;
+}
+
+.tituloQuemSomos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.imgSalao {
+    width: 400px;
+}
+
+/* -------------------------------------------------------------- Serviços */
+
+.blocoServico {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px black;
+    height: 100px;
+    width: 170px;
+    margin: 5px;
+    transition: .4s;
+}
+
+.blocoServico h1 {
+    font-size: 20px;
+    margin: 0;
+}
+
+.blocoServico p {
+    display: none;
+}
+
+.blocoServico img {
+    width: 50px;
+}
+
+.blocoServico:hover {
+    /* efeito de diminuir ao passar o mouse em cima do bloco de serviço */
+    transform: scale(0.95);
+}
+
+/* -------------------------------------------------------------- seção Equipe */
+
+.blocoEquipe {
+    width: 25vw;
+    height: 30vw;
+    border-radius: 20px;
+    box-shadow: 1px 1px 20px var(--sombra);
+    transition: .4s;
+    transform: scale(0.96);
+}
+
+.blocoEquipe:hover {
+    transform: scale(1);
+}
+
+
+
+/* ------------------------------------------------------ classe de funções pré definida */
+
+.mt-7 {
+    margin-top: 6rem;
+}
+
+/* ------------------------------------------------------ Resoluções de tela */
+
+@media (min-width: 767px) {
+
+    /* -------------------- 767px */
+    .blocoServico {
+        /*modificado o tamanho do bloco*/
+        height: 100px;
+        width: 220px;
+        padding: 20px;
+    }
+
+}
+
+@media (min-width: 992px) {
+
+    /* -------------------- 992px */
+    .quemSomos {
+        margin-top: 200px;
+    }
+
+    .tituloQuemSomos {
+        /* Deixa o titulo */
+        display: block;
+    }
+
+    .blocoServico {
+        /* modificando o tamaho do bloco */
+        height: 300px;
+        width: 420px;
+        padding: 20px;
+    }
+
+    .blocoServico h1 {
+        /* modificando o tamanho de fonte do bloco (Serviço)*/
+        font-size: 40px;
+        margin: 0;
+    }
+
+    .blocoServico p {
+        /* adicionando quebra de linha a tag <p> com um tamanho definido */
+        display: block;
+        overflow: hidden;
+        white-space: normal;
+        word-break: break-all;
+        width: 380px;
+        margin: 0;
+    }
+
+
+    .blocoServico img {
+        /* definindo tamanho da imagem da seção (Serviços)*/
+        width: 90px;
+    }
+
+    .mt-lg-7 {
+        /* Criando uma nome class pré definida como margin  para tela grande */
+        margin-top: 6rem;
+    }
+}
+
+/* ------------------------------------------------------ Animações */
+
+@keyframes moverImgs {
+
+    /* animação do carrossel infinito de imagens da home page */
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
 }
