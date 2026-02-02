@@ -31,6 +31,7 @@
 
 body {
     background: var(--cor-do-fundo);
+    height: 176vw;
 }
 
 /* ------------------------------------------------------ Header*/
@@ -56,7 +57,7 @@ body {
 .navHeader a {
     display: flex;
     text-decoration: none;
-    color: black;
+    color: var(--cor-do-botao);
     align-items: center;
     margin: 10px;
     transition: 1s ease;
@@ -121,11 +122,11 @@ body {
 
 .carrosselImgs {
     margin-top: 70px;
-    overflow: hidden;
     display: flex;
-    /* box-shadow: 1px 1px 10px black; */
+    width: 100%;
     align-items: center;
-    -webkit-mask-image: linear-gradient(to right, transparent 10%, black 15%);
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to right, transparent 10%, black 25%);
     mask-image: linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);
 }
 
@@ -135,7 +136,7 @@ body {
 }
 
 .carrosselImgs div {
-    animation: moverImgs 80s linear infinite;
+    animation: moverImgs 40s linear infinite;
 }
 
 /* -------------------------------------------------------------- Quem Somos */
@@ -161,7 +162,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
     border-radius: 10px;
     box-shadow: 1px 1px 5px black;
     height: 100px;
@@ -177,6 +178,7 @@ body {
 
 .blocoServico p {
     display: none;
+
 }
 
 .blocoServico img {
@@ -190,17 +192,44 @@ body {
 
 /* -------------------------------------------------------------- seção Equipe */
 
-.blocoEquipe {
-    width: 25vw;
-    height: 30vw;
-    border-radius: 20px;
-    box-shadow: 1px 1px 20px var(--sombra);
+.containerEquipe {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
     transition: .4s;
-    transform: scale(0.96);
+    padding: 0;
 }
 
-.blocoEquipe:hover {
-    transform: scale(1);
+.containerEquipe:hover {
+    transform: scale(0.98);
+}
+
+.imgEquipe {
+    width: 100%;
+    /* box-shadow: 1px 1px 10px var(--sombra); */
+    transition: .4s;
+}
+
+.nomes {
+    font-size: 15px;
+    justify-content: center;
+    display: flex;
+    margin-top: 1vw;
+}
+
+.formacao {
+    font-size: 13px;
+    color: var(--cor-do-botao);
+}
+
+/* ------------------------------------------------------ adicionais */
+
+.autoScroll {
+    width: 100%;
+    height: 120px;
+    /* background: green; */
 }
 
 
@@ -215,6 +244,7 @@ body {
 
 @media (min-width: 767px) {
 
+
     /* -------------------- 767px */
     .blocoServico {
         /*modificado o tamanho do bloco*/
@@ -223,9 +253,36 @@ body {
         padding: 20px;
     }
 
+    .containerEquipe {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        width: 400px;
+        transition: .4s;
+        padding: 0;
+    }
+
+    .nomes {
+        font-size: 25px;
+        justify-content: center;
+        display: flex;
+        margin-top: 1vw;
+    }
+
+    .formacao {
+        font-size: 15px;
+        color: var(--cor-do-botao);
+    }
 }
 
 @media (min-width: 992px) {
+
+    .autoScroll {
+        width: 100%;
+        height: 70px;
+        /* background: green; */
+    }
 
     /* -------------------- 992px */
     .quemSomos {
@@ -255,7 +312,8 @@ body {
         display: block;
         overflow: hidden;
         white-space: normal;
-        word-break: break-all;
+        word-break: keep-all;
+        overflow-wrap: break-word;
         width: 380px;
         margin: 0;
     }
@@ -278,7 +336,7 @@ body {
 
     /* animação do carrossel infinito de imagens da home page */
     0% {
-        transform: translateX(0);
+        transform: translateX(0%);
     }
 
     100% {
