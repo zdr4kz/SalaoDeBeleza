@@ -10,14 +10,14 @@
 
 @font-face {
     font-family: 'adamScript';
-    src: url('/fonts/RTL-AdamScript-Regular.ttf') format('truetype');
+    src: url('/public/fonts/RTL-AdamScript-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'cooperbt';
-    src: url('/fonts/cooper-black-bt.ttf') format('truetype');
+    src: url('/public/fonts/cooper-black-bt.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
